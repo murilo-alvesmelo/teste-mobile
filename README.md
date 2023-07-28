@@ -40,7 +40,7 @@ Inicie a aplicação
 
 ##Demostração
 
-<img src="https://github.com/murilo-alvesmelo/teste-mobile/raw/main/assets/83835393/3306f2e0-0c74-428b-97cd-c243630812b7.png" alt="Descrição da imagem" width="200">
+![image](https://github.com/murilo-alvesmelo/teste-mobile/assets/83835393/ebd9536a-7f05-49eb-8f10-c725416e3f3d)
 
 ![image](https://github.com/murilo-alvesmelo/teste-mobile/assets/83835393/3d781538-0b8d-4aa6-a093-e99e5bdd117d)
 

@@ -29,6 +29,7 @@ Inicie a aplicação
 
 - Node.js e npm
 - Expo CLI
+- Emulador ou Dispositivo
     - Expo Go(Instalado em algum dispositivo para testar)
     ou
     - Android Studio(Para emular a aplicação em um emulador) 

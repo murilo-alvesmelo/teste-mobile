@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const api = axios.create({
-    baseURL: 'http://192.168.1.4:3001/',
+    baseURL: 'https://api-niceplanet.fly.dev/',
     timeout: 1000,
     headers: { 'X-Custom-Header': 'foobar' }
 });

@@ -14,6 +14,8 @@ export default function Login({ navigation }) {
     if (user) {
       if (user.senhaUsuario === password) {
         navigation.navigate('Home', { ...user })
+        setEmail('')
+        setPassword('')
         return true
       } else {
         Alert.alert('Senha incorreta')
@@ -92,7 +94,7 @@ const style = StyleSheet.create({
   },
   logo: {
     width: '95%',
-    height: 80,
+    height: 85,
     marginBottom: 100
   },
   button: {

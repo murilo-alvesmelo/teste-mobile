@@ -21,24 +21,24 @@ export default function Info(props) {
 
     return (
         <View style={styles.container}>
-            <View style={[styles.containerInfo, 
-                props.route.params.liberado === 0 ? {borderLeftColor: '#FF0000' } : 
-                props.route.params.liberado === 1 ? {borderLeftColor: '#43AD4B'} : {borderLeftColor: '#ed4a13'}]}>
+            <View style={[styles.containerInfo,
+            props.route.params.liberado === 0 ? { borderLeftColor: '#FF0000' } :
+                props.route.params.liberado === 1 ? { borderLeftColor: '#43AD4B' } : { borderLeftColor: '#ed4a13' }]}>
                 <Text style={styles.title}>{props.route.params.nomePropriedade}</Text>
                 <Text style={styles.subtitle}>Numero do cadastro ambiental rual</Text>
                 <Text style={styles.legend}>{props.route.params.numeroCar}</Text>
                 <Text style={styles.subtitle}>Produtores vinculados</Text>
                 {
-                        produtoresFiltrados.map(p => {
-                            return <Text key={p.idProdutor} style={styles.legend}>{p.nomeProdutor ? p.nomeProdutor : 'Nome não consta'}: {p.registroIndividual}</Text>
-                        })
+                    produtoresFiltrados.map(p => {
+                        return <Text key={p.idProdutor} style={styles.legend}>{p.nomeProdutor ? p.nomeProdutor : 'Nome não consta'}: {p.registroIndividual}</Text>
+                    })
                 }
                 <Text style={styles.subtitle}>Cidade/UF</Text>
                 <Text style={styles.legend}>{props.route.params.municipio}/{props.route.params.uf}</Text>
                 <Text style={styles.subtitle}>Resultado</Text>
                 <Text style={styles.legend}>{
-                    props.route.params.liberado === 0 ? 'Bloqueado' : 
-                    props.route.params.liberado === 1 ? 'Liberado' : 'Alerta'}</Text>
+                    props.route.params.liberado === 0 ? 'Bloqueado' :
+                        props.route.params.liberado === 1 ? 'Liberado' : 'Alerta'}</Text>
             </View>
         </View>
     )

@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react'
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import Cards from '../../components/Cards';
 import { useIsFocused } from '@react-navigation/native';
-import Icon  from 'react-native-vector-icons/Feather';
+import Icon from 'react-native-vector-icons/Feather';
 
 export default function Historico(props) {
     const [historico, setHistorico] = useState([])
@@ -23,15 +23,26 @@ export default function Historico(props) {
         }, 1000);
     };
 
+    const deleteStorage = async () => {
+        try {
+            await AsyncStorage.clear()
+            setHistorico([])
+            setRefreshing(false)
+        }
+        catch (error) {
+            console.log('Error', error)
+        }
+    }
+
     useEffect(() => {
-        loadHistorico()
+        loadHistorico();
+        setRefreshing(false);
     }, [])
 
     const handleRefresh = () => {
         setRefreshing(true);
         loadHistorico();
     };
-
 
 
     const renderItens = ({ item, index }) => {
@@ -72,9 +83,8 @@ export default function Historico(props) {
         )
     }
 
-
     return (
-        <View style={{flex: 1}}>
+        <View style={{ flex: 1 }}>
             <FlatList
                 data={historico}
                 renderItem={renderItens}
@@ -88,12 +98,12 @@ export default function Historico(props) {
                     />
                 }
             />
-            <TouchableOpacity 
-                style={styles.buttonTrash} 
-                activeOpacity={0.7} 
-                onPress={() => this.setState({ showAddTask: true })}
-                >
-                <Icon name="trash-2" size={25} color={'#fff'}/>
+            <TouchableOpacity
+                style={styles.buttonTrash}
+                activeOpacity={0.7}
+                onPress={deleteStorage}
+            >
+                <Icon name="trash-2" size={25} color={'#fff'} />
             </TouchableOpacity>
         </View>
     )

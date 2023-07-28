@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet, TouchableOpacity} from 'react-native'
+import { View, Text, StyleSheet, TouchableOpacity } from 'react-native'
 import React from 'react'
 
 export default function Cards(props) {
@@ -8,24 +8,24 @@ export default function Cards(props) {
                 <View style={styles.CardsInside}>
                     <Text style={styles.CardsTitle}>{props.nomePropriedade ? props.nomePropriedade : 'Nome não encontrado'}</Text>
                     <Text style={styles.CardsSubTitle}>{props.numeroCar ? props.numeroCar : '---'}</Text>
-                    <Text 
+                    <Text
                         style={styles.titleCidade}
                     >
                         {`${props.municipio ? props.municipio : 'Não identificado'} - ${props.uf ? props.uf : 'Não identificado'}` ?
-                         `${props.municipio ? props.municipio : 'Não identificado'} - ${props.uf ? props.uf : 'Não identificado'}` : 
-                         'Não identificado'}
+                            `${props.municipio ? props.municipio : 'Não identificado'} - ${props.uf ? props.uf : 'Não identificado'}` :
+                            'Não identificado'}
                     </Text>
-                    <View style={[styles.status, props.liberado === 0 ? {backgroundColor: '#FF0000'} : props.liberado === 1 ? {backgroundColor: '#43AD4B'} : {backgroundColor: '#ed4a13'}]}>
+                    <View style={[styles.status, props.liberado === 0 ? { backgroundColor: '#FF0000' } : props.liberado === 1 ? { backgroundColor: '#43AD4B' } : { backgroundColor: '#ed4a13' }]}>
                         <Text>
-                            {props.liberado  === 0 ? 'Bloqueado' :
+                            {props.liberado === 0 ? 'Bloqueado' :
                                 props.liberado === 1 ? 'Liberado' :
-                                props.liberado === 2 ? 'Alerta' : 'Indefinido '
+                                    props.liberado === 2 ? 'Alerta' : 'Indefinido '
                             }
                         </Text>
                     </View>
                     <TouchableOpacity
                         style={styles.button}
-                        onPress={() => props.navigation.navigate('Info', {...props})}
+                        onPress={() => props.navigation.navigate('Info', { ...props })}
                     >
                         <Text>Visualizar</Text>
                     </TouchableOpacity>
@@ -63,11 +63,11 @@ const styles = StyleSheet.create({
     CardsSubTitle: {
         fontSize: 14,
         marginBottom: 10
-    },  
+    },
     titleCidade: {
         fontSize: 16,
         marginBottom: 10
-    },  
+    },
     status: {
         borderRadius: 10,
         marginTop: 10,

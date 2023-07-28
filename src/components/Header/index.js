@@ -1,8 +1,8 @@
-import { View, StyleSheet, TextInput, TouchableOpacity, Text, Keyboard} from 'react-native'
-import  Icon  from "react-native-vector-icons/Feather";
+import { View, StyleSheet, TextInput, TouchableOpacity, Text, Keyboard } from 'react-native'
+import Icon from "react-native-vector-icons/Feather";
 
-export default function Header(props){
-    return(
+export default function Header(props) {
+    return (
         <View style={styles.container}>
             <View style={styles.containerFind}>
                 <Text style={styles.headerText}>Encontre pelo SICAR</Text>
@@ -11,18 +11,18 @@ export default function Header(props){
                         style={styles.input}
                         value={props.sicar}
                         onChangeText={props.isSicar}
-                        />
+                    />
                     <TouchableOpacity
                         style={styles.icon}
                         onPress={() => (props.isSearch(props.sicar), Keyboard.dismiss())}
-                        >
-                        <Icon name="search" size={30}/>
+                    >
+                        <Icon name="search" size={30} />
                     </TouchableOpacity>
                     <TouchableOpacity
                         style={styles.icon}
                         onPress={props.isClear}
-                        >
-                        <Icon name="trash" size={30}/>
+                    >
+                        <Icon name="trash" size={30} />
                     </TouchableOpacity>
                 </View>
             </View>
@@ -45,7 +45,7 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
     },
-    headerText :{
+    headerText: {
         fontSize: 20,
         fontWeight: 'bold',
         color: '#fff',
@@ -62,11 +62,11 @@ const styles = StyleSheet.create({
         width: 150,
         borderWidth: 1,
         borderRadius: 10,
-        
+
     },
     icon: {
         flexDirection: 'row',
-        marginHorizontal: 5, 
+        marginHorizontal: 5,
         marginTop: 5
     },
 })

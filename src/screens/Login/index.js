@@ -1,21 +1,19 @@
 import { View, Text, StyleSheet, Dimensions, TextInput, Image, TouchableWithoutFeedback, Keyboard, KeyboardAvoidingView, Platform, TouchableOpacity, Alert } from 'react-native'
 import React, { useEffect, useState } from 'react'
 import logo from '../../../assets/logo2.png'
-import fundo from '../../../assets/fundo.jpg'
 import api from '../../services/api'
-import axios from 'axios'
 
 export default function Login({ navigation }) {
   const [users, setUsers] = useState([])
-  const [name, setName] = useState('Administrador')
-  const [password, setPassword] = useState('root')
-  
-  const login = () => {
-    const user = users.usuarios.find(user => user.nomeUsuario === name)
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
 
-    if(user){
-      if(user.senhaUsuario === password) {
-        navigation.navigate('Home')
+  const login = () => {
+    const user = users.usuarios.find(user => user.emailUsuario === email)
+
+    if (user) {
+      if (user.senhaUsuario === password) {
+        navigation.navigate('Home', { ...user })
         return true
       } else {
         Alert.alert('Senha incorreta')
@@ -31,7 +29,7 @@ export default function Login({ navigation }) {
     api.get('usuarios')
       .then(res => setUsers(res.data))
       .catch(err => console.log(err))
-  },[])
+  }, [])
 
   return (
     <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
@@ -47,9 +45,10 @@ export default function Login({ navigation }) {
             />
             <TextInput
               style={style.input}
-              value={name}
-              onChangeText={setName}
-              placeholder='Digite o usuario'
+              value={email}
+              onChangeText={setEmail}
+              placeholder='Digite o email'
+              keyboardType='email-address'
             />
             <TextInput
               style={style.input}
